@@ -17,7 +17,7 @@ This Turborepo includes the following packages/apps:
 ### Apps and Packages
 
 - `api`: a [Payload](https://payloadcms.com/) app
-- `web`: an Astro [Astro](https://astro.build/) app
+- `web`: an [Astro](https://astro.build/) app
 - `eslint-config-custom`: `eslint` configurations (includes `eslint-config-prettier` and `eslint-configg-turbo`)
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
