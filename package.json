@@ -3,10 +3,12 @@
   "description": "A web + headless CMS turborepo",
   "private": true,
   "scripts": {
+    "prepare": "husky install",
     "build": "turbo build",
     "dev": "dotenv -- turbo dev",
     "dev:api": "dotenv -- turbo dev --filter=api",
     "dev:web": "dotenv -- turbo dev --filter=web",
+    "test": "turbo test",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md,astro}\"",
     "generate:types": "dotenv -- pnpm --filter=api generate:types "
@@ -15,10 +17,23 @@
     "@turbo/gen": "^1.9.7",
     "dotenv": "^8.2.0",
     "dotenv-cli": "^7.2.1",
-    "eslint-config-custom": "*",
     "eslint": "latest",
+    "eslint-config-custom": "*",
+    "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
     "prettier": "latest",
     "turbo": "latest"
   },
-  "preinstall": "npx only-allow pnpm"
+  "preinstall": "npx only-allow pnpm",
+  "lint-staged": {
+    "apps/**/*.{js,ts,astro}": [
+      "eslint --fix"
+    ],
+    "packages/**/*.{js,ts,astro}": [
+      "eslint --fix"
+    ],
+    "*.json": [
+      "prettier --write"
+    ]
+  }
 }
