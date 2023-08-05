@@ -1,0 +1,30 @@
+{
+  "name": "@turbopress/web",
+  "description": "Front end website based on Astro",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "lint": "eslint  \"./src/**/*.{js,ts,tsx,astro}\" --fix"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^0.19.7",
+    "@astrojs/tailwind": "^4.0.0",
+    "astro": "^2.10.1",
+    "autoprefixer": "^10.4.14",
+    "canvas-confetti": "^1.6.0",
+    "postcss": "^8.4.24",
+    "tailwindcss": "^3.3.2",
+    "@turbopress/api": "*"
+  },
+  "devDependencies": {
+    "@types/canvas-confetti": "^1.6.0",
+    "eslint-config-custom": "*",
+    "eslint": "latest",
+    "eslint-plugin-astro": "latest"
+  }
+}

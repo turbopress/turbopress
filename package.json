@@ -1,0 +1,24 @@
+{
+  "name": "turbopress",
+  "description": "A web + headless CMS turborepo",
+  "private": true,
+  "scripts": {
+    "build": "turbo build",
+    "dev": "dotenv -- turbo dev",
+    "dev:api": "dotenv -- turbo dev --filter=api",
+    "dev:web": "dotenv -- turbo dev --filter=web",
+    "lint": "turbo lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md,astro}\"",
+    "generate:types": "dotenv -- pnpm --filter=api generate:types "
+  },
+  "devDependencies": {
+    "@turbo/gen": "^1.9.7",
+    "dotenv": "^8.2.0",
+    "dotenv-cli": "^7.2.1",
+    "eslint-config-custom": "*",
+    "eslint": "latest",
+    "prettier": "latest",
+    "turbo": "latest"
+  },
+  "preinstall": "npx only-allow pnpm"
+}
