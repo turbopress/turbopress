@@ -1,0 +1,10 @@
+---
+import type { Page } from '@turbopress/api/types';
+interface Props {
+  page: Page
+}
+
+const {page} = Astro.props;
+---
+
+{page.title}
