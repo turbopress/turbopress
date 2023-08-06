@@ -1,0 +1,17 @@
+---
+import type { FormattedElement, FormattedText, Page } from '@turbopress/api/types';
+import RichText from './RichText.astro';
+interface Props {
+  page: Page
+}
+
+const {page } = Astro.props;
+const content = page.content ? page.content as (FormattedElement | FormattedText)[] : undefined;
+---
+<main>
+  <article class="prose prose-headings:m-0 p-4">
+    <h1 >{page.title}</h1>
+    <hr class="m-3"/>
+    {content && <RichText richText={content} />}
+  </article>
+</main>
