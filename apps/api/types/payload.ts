@@ -9,7 +9,7 @@
 export interface Config {
   collections: {
     categories: Category;
-    posts: Post;
+    pages: Page;
     tags: Tag;
     users: User;
     media: Media;
@@ -20,7 +20,7 @@ export interface Category {
   id: string;
   name?: string;
 }
-export interface Post {
+export interface Page {
   id: string;
   title?: string;
   author?: string | User;

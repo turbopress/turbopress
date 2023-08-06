@@ -1,7 +1,7 @@
 import type { CollectionConfig } from "payload/types";
 
-const Posts: CollectionConfig = {
-  slug: "posts",
+const Pages: CollectionConfig = {
+  slug: "pages",
   admin: {
     defaultColumns: ["title", "author", "category", "tags", "status"],
     useAsTitle: "title",
@@ -59,4 +59,4 @@ const Posts: CollectionConfig = {
   ],
 };
 
-export default Posts;
+export default Pages;
