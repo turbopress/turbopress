@@ -3,7 +3,6 @@
   "globalDotEnv": [".env"],
   "pipeline": {
     "build": {
-      "env": ["PAYLOAD_SECRET"],
       "outputs": ["dist/**", "umd/**", "build/**"]
     },
     "test": {},

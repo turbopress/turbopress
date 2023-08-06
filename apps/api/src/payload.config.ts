@@ -8,7 +8,7 @@ import Tags from "./collections/Tags";
 import Users from "./collections/Users";
 
 export default buildConfig({
-  serverURL: "http://localhost:3000",
+  serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL ?? "http://localhost:3000",
   admin: {
     user: Users.slug,
   },
