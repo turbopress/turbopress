@@ -13,6 +13,12 @@ const Pages: CollectionConfig = {
     {
       name: "title",
       type: "text",
+      required: true,
+    },
+    {
+      name: "slug",
+      type: "text",
+      required: true,
     },
     {
       name: "author",
