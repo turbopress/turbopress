@@ -1,16 +1,15 @@
 ---
-import type { Page } from '@turbopress/api/types';
-import NoHomePage from '../components/NoHomePage.astro';
-import RenderPage from '../components/RenderPage.astro';
+import NoHomePage from "../components/NoHomePage.astro";
+import RenderPage from "../components/RenderPage.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+import { getPageSingle } from "../services/api";
 
-const homePage = await fetch(`${process.env.PAYLOAD_PUBLIC_SERVER_URL}/api/pages?where[slug][equals]=home`).then(res => res.json())
-    .then(res => res?.docs?.[0] as Page | undefined)
+const homePage = await getPageSingle("home");
 
-const pageTitle = homePage?.title ?? 'TurboPress'
+const pageTitle = homePage?.title ?? "TurboPress";
 ---
 
 <MainLayout title={pageTitle} description="">
-  {homePage && <RenderPage page={homePage}/>}
-  {!homePage && <NoHomePage/>}
+  {homePage && <RenderPage page={homePage} />}
+  {!homePage && <NoHomePage />}
 </MainLayout>

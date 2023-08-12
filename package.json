@@ -22,6 +22,7 @@
     "husky": "^8.0.3",
     "lint-staged": "^13.2.3",
     "prettier": "latest",
+    "prettier-plugin-astro": "latest",
     "turbo": "latest"
   },
   "preinstall": "npx only-allow pnpm",

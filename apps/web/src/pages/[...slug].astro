@@ -1,0 +1,11 @@
+---
+import { getPageSingle } from "../services/api";
+const { slug } = Astro.params;
+
+const page = await getPageSingle(slug!);
+if (!page) return Astro.redirect("/404");
+if (page.slug == "home") return Astro.redirect("/");
+---
+
+x
+{page?.status}
