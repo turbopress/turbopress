@@ -9,6 +9,7 @@
 export interface Config {
   collections: {
     categories: Category;
+    contents: Content;
     layouts: Layout;
     media: Media;
     pages: Page;
@@ -21,41 +22,31 @@ export interface Category {
   id: string;
   name?: string;
 }
-export interface Layout {
+export interface Content {
   id: string;
   name: string;
+  slug?: string;
   description?: string;
+  blocks?: {
+    navItems?: {
+      link: {
+        type?: 'reference' | 'custom';
+        newTab?: boolean;
+        reference: {
+          value: string | Page;
+          relationTo: 'pages';
+        };
+        url: string;
+        label: string;
+      };
+      id?: string;
+    }[];
+    id?: string;
+    blockName?: string;
+    blockType: 'menu';
+  }[];
   updatedAt: string;
   createdAt: string;
-}
-export interface Media {
-  id: string;
-  updatedAt: string;
-  createdAt: string;
-  url?: string;
-  filename?: string;
-  mimeType?: string;
-  filesize?: number;
-  width?: number;
-  height?: number;
-  sizes?: {
-    thumbnail?: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
-    };
-    sixteenByNineMedium?: {
-      url?: string;
-      width?: number;
-      height?: number;
-      mimeType?: string;
-      filesize?: number;
-      filename?: string;
-    };
-  };
 }
 export interface Page {
   id: string;
@@ -90,4 +81,81 @@ export interface User {
 export interface Tag {
   id: string;
   name?: string;
+}
+export interface Layout {
+  id: string;
+  name: string;
+  slug?: string;
+  description?: string;
+  header?: {
+    blocks?: (
+      | {
+          navItems?: {
+            link: {
+              type?: 'reference' | 'custom';
+              newTab?: boolean;
+              reference: {
+                value: string | Page;
+                relationTo: 'pages';
+              };
+              url: string;
+              label: string;
+            };
+            id?: string;
+          }[];
+          id?: string;
+          blockName?: string;
+          blockType: 'menu';
+        }
+      | {
+          reference?: {
+            value: string | Content;
+            relationTo: 'contents';
+          };
+          id?: string;
+          blockName?: string;
+          blockType: 'reusableContent';
+        }
+    )[];
+  };
+  body?: {
+    blocks?: {
+      enable: 'Yes' | 'No';
+      id?: string;
+      blockName?: string;
+      blockType: 'pageContent';
+    }[];
+  };
+  footer?: {};
+  updatedAt: string;
+  createdAt: string;
+}
+export interface Media {
+  id: string;
+  updatedAt: string;
+  createdAt: string;
+  url?: string;
+  filename?: string;
+  mimeType?: string;
+  filesize?: number;
+  width?: number;
+  height?: number;
+  sizes?: {
+    thumbnail?: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+    sixteenByNineMedium?: {
+      url?: string;
+      width?: number;
+      height?: number;
+      mimeType?: string;
+      filesize?: number;
+      filename?: string;
+    };
+  };
 }

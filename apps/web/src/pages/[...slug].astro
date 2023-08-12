@@ -7,5 +7,4 @@ if (!page) return Astro.redirect("/404");
 if (page.slug == "home") return Astro.redirect("/");
 ---
 
-x
-{page?.status}
+{page.title}
