@@ -30,7 +30,7 @@ export interface Page {
   content?: {
     [k: string]: unknown;
   }[];
-  status?: 'draft' | 'published';
+  status?: "draft" | "published";
   updatedAt: string;
   createdAt: string;
 }

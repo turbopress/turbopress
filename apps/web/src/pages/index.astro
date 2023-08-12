@@ -1,16 +1,29 @@
 ---
-import type { Page } from '@turbopress/api/types';
-import NoHomePage from '../components/NoHomePage.astro';
-import RenderPage from '../components/RenderPage.astro';
+import type { Page } from "@turbopress/api/types";
+import qs from "qs";
+import NoHomePage from "../components/NoHomePage.astro";
+import RenderPage from "../components/RenderPage.astro";
 import MainLayout from "../layouts/MainLayout.astro";
+import { payloadFetchMany } from "../services";
 
-const homePage = await fetch(`${process.env.PAYLOAD_PUBLIC_SERVER_URL}/api/pages?where[slug][equals]=home`).then(res => res.json())
-    .then(res => res?.docs?.[0] as Page | undefined)
+const query = qs.stringify({
+  where: {
+    slug: {
+      equals: "home"
+    }
+  }
+}, {addQueryPrefix:true });
 
-const pageTitle = homePage?.title ?? 'TurboPress'
+
+const pages = await payloadFetchMany<Page>(
+  `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/api/pages${query}`,
+).then((res) => res);
+const homePage: Page | undefined = pages.docs[0];
+
+const pageTitle = homePage?.title ?? "TurboPress";
 ---
 
 <MainLayout title={pageTitle} description="">
-  {homePage && <RenderPage page={homePage}/>}
-  {!homePage && <NoHomePage/>}
+  {homePage && <RenderPage page={homePage} />}
+  {!homePage && <NoHomePage />}
 </MainLayout>

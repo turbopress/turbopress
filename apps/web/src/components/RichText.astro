@@ -6,11 +6,11 @@ interface Props {
   richText: Exclude<Node, BaseEditor>[];
 }
 
-const {richText} = Astro.props;
+const { richText } = Astro.props;
 ---
 
 {
-  richText.map((node)=>{
+  richText.map((node) => {
     return Text.isText(node) ? (
       <Fragment>
         {node.bold && <strong>{node.text}</strong>}
@@ -59,7 +59,6 @@ const {richText} = Astro.props;
         )}
         {!node.type && <p>{<Astro.self richText={node.children} />}</p>}
       </Fragment>
-    )
-   }
-  )
+    );
+  })
 }
