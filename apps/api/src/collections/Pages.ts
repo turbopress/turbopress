@@ -27,6 +27,7 @@ const Pages: CollectionConfig = {
   admin: {
     defaultColumns: [
       PagesField.title,
+      PagesField.slug,
       PagesField.author,
       PagesField.categories,
       PagesField.tags,

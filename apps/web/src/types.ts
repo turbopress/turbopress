@@ -7,7 +7,7 @@ declare module "slate" {
   }
 }
 
-export type PaginationModel<T = any> = {
+export type PayloadCollection<CollectionType = any> = {
   totalDocs?: number;
   limit?: number;
   totalPages?: number;
@@ -18,5 +18,5 @@ export type PaginationModel<T = any> = {
   prevPage?: number;
   nextPage?: number;
   hasMore?: boolean;
-  docs: T[];
+  docs: CollectionType[];
 };

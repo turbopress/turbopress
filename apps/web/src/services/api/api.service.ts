@@ -1,4 +1,5 @@
-import type { PaginationModel } from "../types";
+import qs from "qs";
+import type { PayloadCollection } from "../../types";
 
 export async function apiFetch<T = any>(
   url: string | URL,
@@ -17,9 +18,10 @@ export async function apiFetch<T = any>(
   throw new Error(`Error fetching data: ${res.statusText} (${res.status})}`);
 }
 
-export async function payloadFetchMany<T>(
+export async function getPayloadCollection<CollectionType>(
   url: string | URL,
-  options: RequestInit = {},
+  query: any = null,
 ) {
-  return apiFetch<PaginationModel<T>>(url, options);
+  const stringifiedQuery = qs.stringify(query, { addQueryPrefix: true });
+  return apiFetch<PayloadCollection<CollectionType>>(url + stringifiedQuery);
 }
