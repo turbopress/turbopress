@@ -9,6 +9,7 @@ const PagesField = {
   tags: "tags",
   content: "content",
   status: "status",
+  layout: "layout",
 };
 
 type PagesField = (typeof PagesField)[keyof typeof PagesField];
@@ -46,31 +47,42 @@ const Pages: CollectionConfig = {
       name: PagesField.slug,
       type: "text",
       required: true,
+      admin: {
+        position: "sidebar",
+      },
     },
     {
       name: PagesField.author,
       type: "relationship",
       relationTo: "users",
+      admin: {
+        position: "sidebar",
+      },
     },
     {
       name: PagesField.publishedDate,
       type: "date",
+      admin: {
+        position: "sidebar",
+      },
     },
     {
       name: PagesField.categories,
       type: "relationship",
       relationTo: "categories",
       hasMany: true,
+      admin: {
+        position: "sidebar",
+      },
     },
     {
       name: PagesField.tags,
       type: "relationship",
       relationTo: "tags",
       hasMany: true,
-    },
-    {
-      name: PagesField.content,
-      type: "richText",
+      admin: {
+        position: "sidebar",
+      },
     },
     {
       name: PagesField.status,
@@ -82,6 +94,15 @@ const Pages: CollectionConfig = {
       admin: {
         position: "sidebar",
       },
+    },
+    {
+      name: PagesField.layout,
+      type: "relationship",
+      relationTo: "layouts",
+    },
+    {
+      name: PagesField.content,
+      type: "richText",
     },
   ],
 };

@@ -17,6 +17,9 @@ const start = async () => {
     onInit: async () => {
       payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`);
     },
+    mongoOptions: {
+      dbName: process.env.DB_NAME,
+    },
   });
 
   // Add your own express routes here
