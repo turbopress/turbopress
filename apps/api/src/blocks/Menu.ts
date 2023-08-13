@@ -1,3 +1,4 @@
+import payload from "payload";
 import { Block } from "payload/types";
 import linkField from "../fields/linkField";
 
@@ -70,6 +71,21 @@ export const Menu: Block = {
                     condition: (_, siblingData) =>
                       siblingData?.type === "reference",
                     width: "50%",
+                  },
+                  hooks: {
+                    afterRead: [
+                      async ({ value, siblingData }) => {
+                        if (value && siblingData.type === "reference") {
+                          const id = value.value;
+                          const page = await payload.findByID({
+                            collection: "pages",
+                            id: id,
+                            depth: 0,
+                          });
+                          siblingData.url = page.slug;
+                        }
+                      },
+                    ],
                   },
                 },
                 {

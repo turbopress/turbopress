@@ -5,6 +5,8 @@ import { getPageSingle } from "../services/api";
 const homePage = await getPageSingle("home");
 
 const pageTitle = homePage?.title ?? "TurboPress";
+
+const layout = homePage?.layout;
 ---
 
-<MainLayout title={pageTitle} description="" />
+<MainLayout title={pageTitle} {layout} description="" />

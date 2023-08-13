@@ -1,3 +1,4 @@
+import payload from "payload";
 import { GroupField } from "payload/types";
 
 function linkField(fieldOverrides?: Partial<GroupField>): GroupField {
@@ -49,6 +50,21 @@ function linkField(fieldOverrides?: Partial<GroupField>): GroupField {
             admin: {
               condition: (_, siblingData) => siblingData?.type === "reference",
               width: "50%",
+            },
+            hooks: {
+              afterRead: [
+                async ({ value, siblingData }) => {
+                  if (value && siblingData.type === "reference") {
+                    const id = value.value;
+                    const page = await payload.findByID({
+                      collection: "pages",
+                      id: id,
+                      depth: 0,
+                    });
+                    siblingData.url = page.slug;
+                  }
+                },
+              ],
             },
           },
           {

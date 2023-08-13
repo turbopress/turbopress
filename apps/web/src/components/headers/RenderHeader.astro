@@ -13,7 +13,7 @@ const { blocks = [] } = Astro.props;
 if (blocks.length === 0) return;
 ---
 
-<header class="shadow p-6 flex items-center">
+<header class="shadow p-6 flex flex-wrap">
   {
     blocks.map((block) => {
       if (!block.id) return;

@@ -1,6 +1,6 @@
 ---
 import type { MainMenu, Menu } from "@turbopress/api/types";
-import DefaultMenu from "./DefaultMenu.astro";
+import DefaultMenu from "./default/DefaultMenu.svelte";
 interface Props {
   menu: Menu;
 }
@@ -13,6 +13,6 @@ const mainMenus: MainMenu[] = menus.map((menu) => menu.mainMenu);
 
 {
   () => {
-    return <DefaultMenu menus={mainMenus} />;
+    return <DefaultMenu menus={mainMenus} client:only="svelte" />;
   }
 }
