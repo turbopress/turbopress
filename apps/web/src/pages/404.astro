@@ -1,1 +1,12 @@
-404 page
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import { getLayoutSingle } from "../services/api/layout.service";
+
+const layout = await getLayoutSingle("404");
+---
+
+<MainLayout title="Error 404" layout={layout} description="Page not found">
+  Not found, error 404 The page you are looking for no longer exists. Perhaps
+  you can return back to the homepage and see if you can find what you are
+  looking for. Or, you can try finding it by using the search form below.
+</MainLayout>

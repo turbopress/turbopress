@@ -1,0 +1,29 @@
+---
+import type { Menu, ReusableContent, SiteTitle } from "@turbopress/api/types";
+import RenderContent from "../RenderContent.astro";
+import RenderMenu from "../menu/RenderMenu.astro";
+import RenderSiteTitle from "./RenderSiteTitle.astro";
+// import SiteTitle from "./SiteTitle.astro";
+interface Props {
+  blocks?: (Menu | ReusableContent | SiteTitle)[];
+}
+
+const { blocks = [] } = Astro.props;
+
+if (blocks.length === 0) return;
+---
+
+<header class="shadow p-6 flex flex-wrap">
+  {
+    blocks.map((block) => {
+      if (!block.id) return;
+      if (block.blockType == "siteTitle")
+        return <RenderSiteTitle siteTitle={block} />;
+      if (block.blockType == "reusableContent" && block.reference?.value)
+        return <RenderContent content={block.reference.value} />;
+      if (block.blockType == "menu" && block.menus)
+        return <RenderMenu menu={block} />;
+      return <div>{block.id}</div>;
+    })
+  }
+</header>

@@ -23,6 +23,7 @@
     "lint-staged": "^13.2.3",
     "prettier": "latest",
     "prettier-plugin-astro": "latest",
+    "prettier-plugin-svelte": "latest",
     "turbo": "latest"
   },
   "preinstall": "npx only-allow pnpm",

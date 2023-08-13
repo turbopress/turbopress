@@ -1,11 +1,15 @@
 ---
+import type { Layout } from "@turbopress/api/types";
+import RenderLayout from "../components/RenderLayout.astro";
 interface Props {
   title?: string;
   description?: string;
+  layout?: string | Layout;
 }
 const {
   title = "AstroCMS",
   description = "Astro, TailwindCSS, and PayloadCMS",
+  layout,
 } = Astro.props;
 ---
 
@@ -18,6 +22,7 @@ const {
     <title>{title}</title>
   </head>
   <body class="h-screen">
-    <slot />
+    {layout && typeof layout != "string" && <RenderLayout layout={layout} />}
+    {!layout && <slot />}
   </body>
 </html>

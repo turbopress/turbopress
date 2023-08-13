@@ -1,4 +1,5 @@
 ---
+import MainLayout from "../layouts/MainLayout.astro";
 import { getPageSingle } from "../services/api";
 const { slug } = Astro.params;
 
@@ -7,5 +8,9 @@ if (!page) return Astro.redirect("/404");
 if (page.slug == "home") return Astro.redirect("/");
 ---
 
-x
-{page?.status}
+<MainLayout title={page.title} layout={page.layout} description="">
+  {page.title}
+  {page.layout}
+  <!-- {homePage && <RenderPage page={homePage} />}
+  {!homePage && <NoHomePage />} -->
+</MainLayout>
