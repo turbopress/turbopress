@@ -1,0 +1,23 @@
+---
+interface Props {
+  link?: string | undefined;
+  target?: "_self" | "_blank" | "_top" | "_parent";
+  class?: string;
+}
+
+const { link, target, class: className } = Astro.props;
+---
+
+<link id="link" />
+{
+  link && (
+    <a
+      href={link}
+      {target}
+      class={"cursor-pointer hover:text-indigo-600 " + className}
+    >
+      <slot />
+    </a>
+  )
+}
+{!link && <slot />}

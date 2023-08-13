@@ -1,0 +1,33 @@
+---
+import type { MainMenu } from "@turbopress/api/types";
+import { Icon } from "astro-icon";
+interface Props {
+  menus: MainMenu[];
+}
+
+// const { menus } = Astro.props;
+---
+
+<div
+  class="flex items-center cursor-pointer font-semibold hover:text-indigo-600"
+>
+  <Icon name="ic:baseline-menu" class="h-5 w-5 mr-2" />
+  <div>Menu</div>
+</div>
+<!-- 
+<div>
+  {
+    menus.map((menu) => {
+      return (
+        <div>
+          {menu.label}
+          <div>
+            {menu.subMenu?.map((submenu) => {
+              return <div> {submenu.link.label}</div>;
+            })}
+          </div>
+        </div>
+      );
+    })
+  }
+</div> -->

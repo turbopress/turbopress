@@ -1,0 +1,18 @@
+---
+import type { MainMenu, Menu } from "@turbopress/api/types";
+import DefaultMenu from "./DefaultMenu.astro";
+interface Props {
+  menu: Menu;
+}
+
+const { menu } = Astro.props;
+const menus = menu.menus ?? [];
+
+const mainMenus: MainMenu[] = menus.map((menu) => menu.mainMenu);
+---
+
+{
+  () => {
+    return <DefaultMenu menus={mainMenus} />;
+  }
+}

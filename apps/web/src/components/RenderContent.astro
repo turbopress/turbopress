@@ -1,7 +1,8 @@
 ---
 import type { Content } from "@turbopress/api/types";
 import { getContentSingle } from "../services/api/content.service";
-import RenderMenu from "./RenderMenu.astro";
+import RenderSiteTitle from "./headers/RenderSiteTitle.astro";
+import RenderMenu from "./menu/RenderMenu.astro";
 interface Props {
   content: string | Content;
 }
@@ -19,8 +20,10 @@ const blocks = content.blocks;
 {
   blocks.map((block) => {
     if (!block.id) return;
+    if (block.blockType == "siteTitle")
+      return <RenderSiteTitle siteTitle={block} />;
     if (block.blockType == "menu" && block.menus)
-      return <RenderMenu menus={block.menus} />;
+      return <RenderMenu menu={block} />;
     return <div>block = {block.id}</div>;
   })
 }

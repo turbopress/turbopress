@@ -1,0 +1,16 @@
+---
+import type { SiteTitle } from "@turbopress/api/types";
+import Link from "../Link.astro";
+interface Props {
+  siteTitle: SiteTitle;
+}
+
+const { siteTitle } = Astro.props;
+---
+
+<div class="w-full flex">
+  <Link link="/">
+    <div class="font-bold text-lg">{siteTitle.siteName}</div>
+  </Link>
+  <div class="w-full"></div>
+</div>

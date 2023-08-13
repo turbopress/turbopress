@@ -6,6 +6,13 @@ export const Menu: Block = {
   interfaceName: "Menu",
   fields: [
     {
+      name: "type",
+      type: "select",
+      options: ["default"],
+      required: true,
+      defaultValue: "default",
+    },
+    {
       name: "menus",
       type: "array",
       fields: [

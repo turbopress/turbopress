@@ -27,11 +27,12 @@ export interface Content {
   name: string;
   slug?: string;
   description?: string;
-  blocks?: Menu[];
+  blocks?: (Menu | SiteTitle)[];
   updatedAt: string;
   createdAt: string;
 }
 export interface Menu {
+  type: 'default';
   menus?: {
     mainMenu: MainMenu;
     id?: string;
@@ -94,7 +95,7 @@ export interface Layout {
   slug?: string;
   description?: string;
   header?: {
-    blocks?: (Menu | ReusableContent)[];
+    blocks?: (Menu | ReusableContent | SiteTitle)[];
   };
   body?: {
     blocks?: {
@@ -116,6 +117,12 @@ export interface ReusableContent {
   id?: string;
   blockName?: string;
   blockType: 'reusableContent';
+}
+export interface SiteTitle {
+  siteName: string;
+  id?: string;
+  blockName?: string;
+  blockType: 'siteTitle';
 }
 export interface Link {
   type?: 'reference' | 'custom';

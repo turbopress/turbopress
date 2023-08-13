@@ -2,6 +2,7 @@ import { CollectionConfig } from "payload/types";
 import { Menu } from "../blocks/Menu";
 import { PageContent } from "../blocks/PageContent";
 import { ReusableContent } from "../blocks/ReusableContent";
+import { SiteTitle } from "../blocks/SiteTitle";
 
 const LayoutsField = {
   name: "name",
@@ -40,7 +41,11 @@ const Layouts: CollectionConfig = {
       name: "header",
       type: "group",
       fields: [
-        { name: "blocks", type: "blocks", blocks: [Menu, ReusableContent] },
+        {
+          name: "blocks",
+          type: "blocks",
+          blocks: [Menu, ReusableContent, SiteTitle],
+        },
       ],
     },
     {
