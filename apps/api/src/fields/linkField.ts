@@ -4,6 +4,7 @@ function linkField(fieldOverrides?: Partial<GroupField>): GroupField {
   return {
     name: "link",
     type: "group",
+    interfaceName: "Link",
     fields: [
       {
         type: "row",

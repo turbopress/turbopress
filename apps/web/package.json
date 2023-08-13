@@ -15,6 +15,7 @@
     "@astrojs/mdx": "latest",
     "@astrojs/node": "latest",
     "@astrojs/tailwind": "latest",
+    "@astrojs/svelte": "latest",
     "@turbopress/api": "*",
     "astro": "latest",
     "autoprefixer": "latest",

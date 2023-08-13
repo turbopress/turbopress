@@ -27,26 +27,32 @@ export interface Content {
   name: string;
   slug?: string;
   description?: string;
-  blocks?: {
-    navItems?: {
-      link: {
-        type?: 'reference' | 'custom';
-        newTab?: boolean;
-        reference: {
-          value: string | Page;
-          relationTo: 'pages';
-        };
-        url: string;
-        label: string;
-      };
-      id?: string;
-    }[];
-    id?: string;
-    blockName?: string;
-    blockType: 'menu';
-  }[];
+  blocks?: Menu[];
   updatedAt: string;
   createdAt: string;
+}
+export interface Menu {
+  menus?: {
+    mainMenu: MainMenu;
+    id?: string;
+  }[];
+  id?: string;
+  blockName?: string;
+  blockType: 'menu';
+}
+export interface MainMenu {
+  type?: 'reference' | 'custom' | 'none';
+  newTab?: boolean;
+  reference: {
+    value: string | Page;
+    relationTo: 'pages';
+  };
+  url: string;
+  label: string;
+  subMenu?: {
+    link: Link;
+    id?: string;
+  }[];
 }
 export interface Page {
   id: string;
@@ -88,35 +94,7 @@ export interface Layout {
   slug?: string;
   description?: string;
   header?: {
-    blocks?: (
-      | {
-          navItems?: {
-            link: {
-              type?: 'reference' | 'custom';
-              newTab?: boolean;
-              reference: {
-                value: string | Page;
-                relationTo: 'pages';
-              };
-              url: string;
-              label: string;
-            };
-            id?: string;
-          }[];
-          id?: string;
-          blockName?: string;
-          blockType: 'menu';
-        }
-      | {
-          reference?: {
-            value: string | Content;
-            relationTo: 'contents';
-          };
-          id?: string;
-          blockName?: string;
-          blockType: 'reusableContent';
-        }
-    )[];
+    blocks?: (Menu | ReusableContent)[];
   };
   body?: {
     blocks?: {
@@ -129,6 +107,25 @@ export interface Layout {
   footer?: {};
   updatedAt: string;
   createdAt: string;
+}
+export interface ReusableContent {
+  reference?: {
+    value: string | Content;
+    relationTo: 'contents';
+  };
+  id?: string;
+  blockName?: string;
+  blockType: 'reusableContent';
+}
+export interface Link {
+  type?: 'reference' | 'custom';
+  newTab?: boolean;
+  reference: {
+    value: string | Page;
+    relationTo: 'pages';
+  };
+  url: string;
+  label: string;
 }
 export interface Media {
   id: string;

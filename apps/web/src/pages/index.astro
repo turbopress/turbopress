@@ -1,6 +1,4 @@
 ---
-import NoHomePage from "../components/NoHomePage.astro";
-import RenderPage from "../components/RenderPage.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import { getPageSingle } from "../services/api";
 
@@ -9,7 +7,4 @@ const homePage = await getPageSingle("home");
 const pageTitle = homePage?.title ?? "TurboPress";
 ---
 
-<MainLayout title={pageTitle} description="">
-  {homePage && <RenderPage page={homePage} />}
-  {!homePage && <NoHomePage />}
-</MainLayout>
+<MainLayout title={pageTitle} description="" />
