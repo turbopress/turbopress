@@ -3,6 +3,7 @@ import type {
   FormattedElement,
   FormattedText,
   Layout,
+  Media,
 } from "@turbopress/api/types";
 import RenderLayout from "../components/RenderLayout.astro";
 interface Props {
@@ -10,13 +11,21 @@ interface Props {
   description?: string;
   layout?: string | Layout;
   content?: (FormattedElement | FormattedText | any)[];
+  image?: string | Media;
 }
 const {
   title = "AstroCMS",
   description = "Astro, TailwindCSS, and PayloadCMS",
   layout,
   content,
+  image,
 } = Astro.props;
+
+const metaImage = image
+  ? typeof image === "string"
+    ? image
+    : image.url
+  : undefined;
 ---
 
 <html lang="en">
@@ -24,6 +33,7 @@ const {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
+    {metaImage && <meta property="og:image" content={metaImage} />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
   </head>

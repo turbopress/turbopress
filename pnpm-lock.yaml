@@ -44,6 +44,9 @@ importers:
 
   apps/api:
     dependencies:
+      '@payloadcms/plugin-seo':
+        specifier: latest
+        version: 1.0.14-canary.0(payload@1.12.0)(react@18.2.0)
       dotenv:
         specifier: ^8.2.0
         version: 8.2.0
@@ -107,7 +110,7 @@ importers:
         version: 0.8.1
       autoprefixer:
         specifier: latest
-        version: 10.4.14(postcss@8.4.27)
+        version: 10.4.15(postcss@8.4.27)
       nanostores:
         specifier: latest
         version: 0.9.3
@@ -2230,6 +2233,16 @@ packages:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.15.0
 
+  /@payloadcms/plugin-seo@1.0.14-canary.0(payload@1.12.0)(react@18.2.0):
+    resolution: {integrity: sha512-NXy4GzWU+vC1E0bm6hHOSQpRvwkGzRDdymz7qUWUgWn+/8EQe36fJ8CsKwu85UN+bjv2AVk6JIr3YBW+QFpchw==}
+    peerDependencies:
+      payload: ^0.18.5 || ^1.0.0
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      payload: 1.12.0(typescript@4.8.4)
+      react: 18.2.0
+    dev: false
+
   /@pkgr/utils@2.4.2:
     resolution: {integrity: sha512-POgTXhjrTfbTV63DiFXav4lBHiICLKKwDeaKn9Nphwj7WH6m0hMMCaJkMyRWjgtPFyRKRVoMXXjczsTQRDEhYw==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
@@ -3816,22 +3829,6 @@ packages:
     engines: {node: '>=10.12.0'}
     dev: false
 
-  /autoprefixer@10.4.14(postcss@8.4.27):
-    resolution: {integrity: sha512-FQzyfOsTlwVzjHxKEqRIAdJx9niO6VCBCoEwax/VLSoQF29ggECcPuBqUMZ+u8jCZOPSy8b8/8KnuFbp0SaFZQ==}
-    engines: {node: ^10 || ^12 || >=14}
-    hasBin: true
-    peerDependencies:
-      postcss: ^8.1.0
-    dependencies:
-      browserslist: 4.21.10
-      caniuse-lite: 1.0.30001519
-      fraction.js: 4.2.0
-      normalize-range: 0.1.2
-      picocolors: 1.0.0
-      postcss: 8.4.27
-      postcss-value-parser: 4.2.0
-    dev: false
-
   /autoprefixer@10.4.15(postcss@8.4.27):
     resolution: {integrity: sha512-KCuPB8ZCIqFdA4HwKXsvz7j6gvSDNhDP7WnUjBleRkKjPdvCmHFuQ77ocavI8FT6NdvlBnE2UFr2H4Mycn8Vew==}
     engines: {node: ^10 || ^12 || >=14}
@@ -4165,10 +4162,6 @@ packages:
       caniuse-lite: 1.0.30001520
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
-    dev: false
-
-  /caniuse-lite@1.0.30001519:
-    resolution: {integrity: sha512-0QHgqR+Jv4bxHMp8kZ1Kn8CH55OikjKJ6JmKkZYP1F3D7w+lnFXF70nG5eNfsZS89jadi5Ywy5UCSKLAglIRkg==}
     dev: false
 
   /caniuse-lite@1.0.30001520:
