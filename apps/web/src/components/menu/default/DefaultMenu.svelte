@@ -2,13 +2,15 @@
   import Icon from "@iconify/svelte";
   import type { MainMenu } from "@turbopress/api/types";
   import MainMenuSvelte from "./_MainMenu.svelte";
-  import { isMenuOpen } from "./defaultMenu";
+  import { menuState } from "./defaultMenu";
 
   export let menus: MainMenu[];
 
   function handleClick() {
-    isMenuOpen.set(!$isMenuOpen);
+    menuState.setKey("isOpen", !isOpen);
   }
+
+  $: isOpen = $menuState.isOpen;
 </script>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -17,18 +19,18 @@
   on:click={handleClick}
   on:keypress={handleClick}
 >
-  {#if $isMenuOpen}
-    <Icon icon={"ic:round-close"} class="h-5 w-5 mr-2" />
+  {#if isOpen}
+    <Icon icon="ic:round-close" class="h-5 w-5 mr-2" />
   {:else}
-    <Icon icon={"ic:baseline-menu"} class="h-5 w-5 mr-2" />
+    <Icon icon="ic:baseline-menu" class="h-5 w-5 mr-2" />
   {/if}
   <div>Menu</div>
 </div>
 
-{#if $isMenuOpen}
-  <div class="w-full">
-    {#each menus as menu}
-      <MainMenuSvelte {menu} />
+{#if isOpen}
+  <div class="w-full cursor-pointer">
+    {#each menus as menu, i}
+      <MainMenuSvelte {menu} index={i} />
     {/each}
   </div>
 {/if}
