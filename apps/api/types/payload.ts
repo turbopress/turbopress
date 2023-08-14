@@ -68,6 +68,11 @@ export interface Page {
   content?: {
     [k: string]: unknown;
   }[];
+  meta?: {
+    title?: string;
+    description?: string;
+    image?: string | Media;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -120,19 +125,10 @@ export interface SiteTitle {
   blockType: 'siteTitle';
 }
 export interface PageContent {
+  description?: string;
   id?: string;
   blockName?: string;
   blockType: 'pageContent';
-}
-export interface Link {
-  type?: 'reference' | 'custom';
-  newTab?: boolean;
-  reference: {
-    value: string | Page;
-    relationTo: 'pages';
-  };
-  url: string;
-  label: string;
 }
 export interface Media {
   id: string;
@@ -162,4 +158,14 @@ export interface Media {
       filename?: string;
     };
   };
+}
+export interface Link {
+  type?: 'reference' | 'custom';
+  newTab?: boolean;
+  reference: {
+    value: string | Page;
+    relationTo: 'pages';
+  };
+  url: string;
+  label: string;
 }
