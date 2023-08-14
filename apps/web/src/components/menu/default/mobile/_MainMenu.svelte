@@ -1,18 +1,18 @@
 <script lang="ts">
   import Icon from "@iconify/svelte";
   import type { MainMenu } from "@turbopress/api/types";
-  import Link from "../../link/Link.svelte";
+  import Link from "../../../link/Link.svelte";
+  import { mobileMenuState } from "../defaultMenu";
   import SubMenu from "./_SubMenu.svelte";
-  import { menuState } from "./defaultMenu";
 
   export let menu: MainMenu;
   export let index: number;
 
-  $: isOpen = $menuState.activeIndex == index;
+  $: isOpen = $mobileMenuState.activeIndex == index;
 
   function handleClick() {
-    if (isOpen) menuState.setKey("activeIndex", undefined);
-    else menuState.setKey("activeIndex", index);
+    if (isOpen) mobileMenuState.setKey("activeIndex", undefined);
+    else mobileMenuState.setKey("activeIndex", index);
   }
 </script>
 

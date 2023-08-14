@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Link } from "@turbopress/api/types";
-  import LinkSvelte from "../../link/Link.svelte";
+  import LinkSvelte from "../../../link/Link.svelte";
   export let subMenu: {
     link: Link;
     id?: string;

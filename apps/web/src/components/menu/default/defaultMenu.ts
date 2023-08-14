@@ -1,11 +1,11 @@
 import { map } from "nanostores";
 
-interface MenuState {
+interface MobileMenuState {
   isOpen: boolean;
   activeIndex?: number;
 }
 
-export const menuState = map<MenuState>({
+export const mobileMenuState = map<MobileMenuState>({
   isOpen: false,
   activeIndex: undefined,
 });
