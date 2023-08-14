@@ -98,12 +98,7 @@ export interface Layout {
     blocks?: (Menu | ReusableContent | SiteTitle)[];
   };
   body?: {
-    blocks?: {
-      enable: 'Yes' | 'No';
-      id?: string;
-      blockName?: string;
-      blockType: 'pageContent';
-    }[];
+    blocks?: (PageContent | ReusableContent)[];
   };
   footer?: {};
   updatedAt: string;
@@ -123,6 +118,11 @@ export interface SiteTitle {
   id?: string;
   blockName?: string;
   blockType: 'siteTitle';
+}
+export interface PageContent {
+  id?: string;
+  blockName?: string;
+  blockType: 'pageContent';
 }
 export interface Link {
   type?: 'reference' | 'custom';

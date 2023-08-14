@@ -1,11 +1,18 @@
 ---
-import type { Layout } from "@turbopress/api/types";
-import RenderHeader from "./headers/RenderHeader.astro";
+import type {
+  FormattedElement,
+  FormattedText,
+  Layout,
+} from "@turbopress/api/types";
+import RenderBody from "./body/RenderBody.astro";
+import RenderHeader from "./header/RenderHeader.astro";
 interface Props {
   layout: Layout;
+  content?: (FormattedElement | FormattedText)[];
 }
 
-const { layout } = Astro.props;
+const { layout, content } = Astro.props;
 ---
 
 <RenderHeader blocks={layout.header?.blocks} />
+<RenderBody blocks={layout.body?.blocks} {content} />

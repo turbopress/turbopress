@@ -1,9 +1,10 @@
 ---
+import type { FormattedElement, FormattedText } from "@turbopress/api/types";
 import escapeHTML from "escape-html";
-import { BaseEditor, Node, Text } from "slate";
+import { Text } from "slate";
 
 interface Props {
-  richText: Exclude<Node, BaseEditor>[];
+  richText: (FormattedElement | FormattedText)[];
 }
 
 const { richText } = Astro.props;

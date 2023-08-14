@@ -1,7 +1,17 @@
 import { Block } from "payload/types";
-import enableField from "../fields/enableField";
 
 export const PageContent: Block = {
   slug: "pageContent",
-  fields: [enableField()],
+  interfaceName: "PageContent",
+  fields: [
+    {
+      name: "description",
+      type: "textarea",
+      defaultValue:
+        "This block will display the content of the page (if any). Please edit the original page change the value.",
+      admin: {
+        readOnly: true,
+      },
+    },
+  ],
 };
