@@ -3,6 +3,9 @@ import type { CollectionConfig } from "payload/types";
 
 const Media: CollectionConfig = {
   slug: "media",
+  access: {
+    read: () => true,
+  },
   upload: {
     staticDir: path.resolve(__dirname, "../../media"),
     // Specify the size name that you'd like to use as admin thumbnail

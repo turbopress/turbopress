@@ -25,3 +25,7 @@ export async function getPayloadCollection<CollectionType>(
   const stringifiedQuery = qs.stringify(query, { addQueryPrefix: true });
   return apiFetch<PayloadCollection<CollectionType>>(url + stringifiedQuery);
 }
+
+export async function getPayloadDocument<CollectionType>(url: string | URL) {
+  return apiFetch<CollectionType>(url);
+}
