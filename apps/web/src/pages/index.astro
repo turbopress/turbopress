@@ -9,4 +9,9 @@ const pageTitle = homePage?.title ?? "TurboPress";
 const layout = homePage?.layout;
 ---
 
-<MainLayout title={pageTitle} {layout} description="" />
+<MainLayout
+  title={pageTitle}
+  {layout}
+  description=""
+  content={homePage?.content}
+/>

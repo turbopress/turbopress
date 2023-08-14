@@ -51,7 +51,13 @@ const Layouts: CollectionConfig = {
     {
       name: "body",
       type: "group",
-      fields: [{ name: "blocks", type: "blocks", blocks: [PageContent] }],
+      fields: [
+        {
+          name: "blocks",
+          type: "blocks",
+          blocks: [PageContent, ReusableContent],
+        },
+      ],
     },
     { name: "footer", type: "group", fields: [] },
   ],
