@@ -1,5 +1,7 @@
 import { CollectionConfig } from "payload/types";
 import { Menu } from "../blocks/Menu";
+import { PageContent } from "../blocks/PageContent";
+import { PageList } from "../blocks/PageList";
 import { SiteTitle } from "../blocks/SiteTitle";
 
 const ContentsField = {
@@ -35,7 +37,11 @@ const Contents: CollectionConfig = {
       name: ContentsField.description,
       type: "text",
     },
-    { name: "blocks", type: "blocks", blocks: [Menu, SiteTitle] },
+    {
+      name: "blocks",
+      type: "blocks",
+      blocks: [Menu, PageContent, PageList, SiteTitle],
+    },
   ],
 };
 

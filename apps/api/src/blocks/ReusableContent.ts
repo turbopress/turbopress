@@ -1,4 +1,5 @@
 import { Block } from "payload/types";
+import Contents from "../collections/Contents";
 
 export const ReusableContent: Block = {
   slug: "reusableContent",
@@ -8,7 +9,7 @@ export const ReusableContent: Block = {
       name: "reference",
       type: "relationship",
       // maxDepth: 0,
-      relationTo: ["contents"],
+      relationTo: [Contents.slug],
     },
   ],
 };

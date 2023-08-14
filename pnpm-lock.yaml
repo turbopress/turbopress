@@ -54,7 +54,7 @@ importers:
         specifier: ^4.17.1
         version: 4.17.1
       payload:
-        specifier: ^1.12.0
+        specifier: latest
         version: 1.12.0(typescript@4.8.4)
     devDependencies:
       '@types/express':
