@@ -57,5 +57,5 @@ To fully utilize the type safe features, manually generate the types for Payload
 Then, you can import the types easily as simple as
 
 ```ts
-import type { User } from "@astrocms/api/types";
+import type { User } from "@turbopress/api/types";
 ```
