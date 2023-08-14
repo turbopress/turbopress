@@ -1,3 +1,11 @@
-import { atom } from "nanostores";
+import { map } from "nanostores";
 
-export const isMenuOpen = atom(false);
+interface MobileMenuState {
+  isOpen: boolean;
+  activeIndex?: number;
+}
+
+export const mobileMenuState = map<MobileMenuState>({
+  isOpen: false,
+  activeIndex: undefined,
+});

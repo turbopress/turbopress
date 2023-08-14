@@ -35,6 +35,7 @@
     "escape-html": "^1.0.3",
     "eslint": "latest",
     "eslint-config-custom": "*",
-    "eslint-plugin-astro": "latest"
+    "eslint-plugin-astro": "latest",
+    "svelte-breakpoints": "latest"
   }
 }
