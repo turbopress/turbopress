@@ -102,37 +102,16 @@ export interface Layout {
   slug?: string;
   description?: string;
   header?: {
-    blocks?: (PageContent | PageList | ReusableContent | Menu | SiteTitle)[];
+    blocks?: (ReusableContent | Menu | SiteTitle)[];
   };
   body?: {
-    blocks?: (PageContent | PageList | ReusableContent)[];
+    blocks?: (ReusableContent | PageContent | PageList)[];
   };
   footer?: {
-    blocks?: (PageContent | PageList | ReusableContent)[];
+    blocks?: ReusableContent[];
   };
   updatedAt: string;
   createdAt: string;
-}
-export interface PageContent {
-  description?: string;
-  id?: string;
-  blockName?: string;
-  blockType: 'pageContent';
-}
-export interface PageList {
-  numberOfItems?: number;
-  filterByCategories?: {
-    value: string | Category;
-    relationTo: 'categories';
-  };
-  filterByTags?: {
-    value: string | Tag;
-    relationTo: 'tags';
-  };
-  sortBy?: 'title' | 'createdAt' | 'updatedAt' | '-title' | '-createdAt' | '-updatedAt';
-  id?: string;
-  blockName?: string;
-  blockType: 'pageList';
 }
 export interface ReusableContent {
   reference?: {
@@ -148,6 +127,37 @@ export interface SiteTitle {
   id?: string;
   blockName?: string;
   blockType: 'siteTitle';
+}
+export interface PageContent {
+  description?: string;
+  id?: string;
+  blockName?: string;
+  blockType: 'pageContent';
+}
+export interface PageList {
+  numberOfItems?: number;
+  filterByCategories?:
+    | {
+        value: string;
+        relationTo: 'categories';
+      }[]
+    | {
+        value: Category;
+        relationTo: 'categories';
+      }[];
+  filterByTags?:
+    | {
+        value: string;
+        relationTo: 'tags';
+      }[]
+    | {
+        value: Tag;
+        relationTo: 'tags';
+      }[];
+  sortBy?: 'title' | 'createdAt' | 'updatedAt' | '-title' | '-createdAt' | '-updatedAt';
+  id?: string;
+  blockName?: string;
+  blockType: 'pageList';
 }
 export interface Media {
   id: string;

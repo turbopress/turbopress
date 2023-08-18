@@ -12,7 +12,7 @@ const LayoutsField = {
 };
 type LayoutsField = (typeof LayoutsField)[keyof typeof LayoutsField];
 
-const blocks = [PageContent, PageList, ReusableContent];
+const blocks = [ReusableContent];
 
 const Layouts: CollectionConfig = {
   slug: "layouts",
@@ -58,7 +58,7 @@ const Layouts: CollectionConfig = {
         {
           name: "blocks",
           type: "blocks",
-          blocks: blocks,
+          blocks: [...blocks, PageContent, PageList],
         },
       ],
     },

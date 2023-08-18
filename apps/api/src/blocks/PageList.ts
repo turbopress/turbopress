@@ -8,6 +8,7 @@ const PageListField = {
   filterByCategories: "filterByCategories",
   filterByTags: "filterByTags",
   sortBy: "sortBy",
+  pages: "pages",
 };
 
 type PageListField = (typeof PageListField)[keyof typeof PageListField];
@@ -25,11 +26,15 @@ export const PageList: Block = {
       name: PageListField.filterByCategories,
       type: "relationship",
       relationTo: [Categories.slug],
+      maxDepth: 0,
+      hasMany: true,
     },
     {
       name: PageListField.filterByTags,
       type: "relationship",
       relationTo: [Tags.slug],
+      hasMany: true,
+      maxDepth: 0,
     },
     {
       name: PageListField.sortBy,

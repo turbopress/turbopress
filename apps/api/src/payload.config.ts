@@ -36,4 +36,5 @@ export default buildConfig({
       generateTitle: generateTitle,
     }),
   ],
+  cors: "*",
 });

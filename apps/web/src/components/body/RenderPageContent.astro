@@ -1,15 +1,16 @@
 ---
 import type { FormattedElement, FormattedText } from "@turbopress/api/types";
-import RichText from "../RichText.astro";
+import RichText from "../rich-text/RichText.astro";
 interface Props {
   content?: (FormattedElement | FormattedText)[];
+  title?: string;
 }
 const { content } = Astro.props;
 ---
 
 {
   content && (
-    <article class="w-full">
+    <article class="w-full prose prose-headings:m-0 prose-headings:my-3 prose-p:m-0 prose-p:my-2">
       <RichText richText={content} />
     </article>
   )

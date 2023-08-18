@@ -3,12 +3,15 @@ import type {
   FormattedElement,
   FormattedText,
   PageContent,
+  PageList,
   ReusableContent,
 } from "@turbopress/api/types";
-import RenderContent from "../RenderContent.astro";
+import RenderContent from "../RenderReusableContent.astro";
 import RenderPageContent from "./RenderPageContent.astro";
+// import RenderPageList from "./page-list/RenderPageList.astro";
+import RenderPageList from "./page-list/RenderPageList.svelte";
 interface Props {
-  blocks?: (ReusableContent | PageContent)[];
+  blocks?: (PageList | ReusableContent | PageContent)[];
   content?: (FormattedElement | FormattedText)[];
 }
 
@@ -25,6 +28,8 @@ if (blocks.length === 0) return;
         return <RenderContent content={block.reference.value} />;
       if (block.blockType == "pageContent")
         return <RenderPageContent {content} />;
+      if (block.blockType == "pageList")
+        return <RenderPageList {block} client:only />;
       return <div>{block.id}</div>;
     })
   }

@@ -2,7 +2,7 @@ import type { Page } from "@turbopress/api/types";
 import { getPayloadCollection } from "./api.service";
 
 export async function getPageCollection(query: any = null) {
-  const url = `${process.env.PAYLOAD_PUBLIC_SERVER_URL}/api/pages`;
+  const url = `${import.meta.env.PAYLOAD_PUBLIC_SERVER_URL}/api/pages`;
   return getPayloadCollection<Page>(url, query);
 }
 
