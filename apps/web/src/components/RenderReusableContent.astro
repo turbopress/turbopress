@@ -24,6 +24,7 @@ const blocks = content.blocks;
       return <RenderSiteTitle siteTitle={block} />;
     if (block.blockType == "menu" && block.menus)
       return <RenderMenu menu={block} />;
+
     return <div>block = {block.id}</div>;
   })
 }

@@ -1,5 +1,6 @@
 import payload from "payload";
 import { Block } from "payload/types";
+import Pages from "../collections/Pages";
 import linkField from "../fields/linkField";
 
 export const Menu: Block = {
@@ -64,7 +65,7 @@ export const Menu: Block = {
                   name: "reference",
                   label: "Document to link to",
                   type: "relationship",
-                  relationTo: ["pages"],
+                  relationTo: [Pages.slug],
                   required: true,
                   maxDepth: 0,
                   admin: {

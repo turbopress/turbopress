@@ -1,6 +1,6 @@
 import type { CollectionConfig } from "payload/types";
 
-const PagesField = {
+export const PagesField = {
   title: "title",
   slug: "slug",
   author: "author",
@@ -10,6 +10,8 @@ const PagesField = {
   content: "content",
   status: "status",
   layout: "layout",
+  createdAt: "createdAt",
+  updatedAt: "updatedAt",
 };
 
 type PagesField = (typeof PagesField)[keyof typeof PagesField];

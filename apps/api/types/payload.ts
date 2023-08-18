@@ -20,14 +20,15 @@ export interface Config {
 }
 export interface Category {
   id: string;
-  name?: string;
+  name: string;
+  slug: string;
 }
 export interface Content {
   id: string;
   name: string;
   slug?: string;
   description?: string;
-  blocks?: (Menu | SiteTitle)[];
+  blocks?: (Menu | PageContent | PageList | SiteTitle)[];
   updatedAt: string;
   createdAt: string;
 }
@@ -92,7 +93,8 @@ export interface User {
 }
 export interface Tag {
   id: string;
-  name?: string;
+  name: string;
+  slug: string;
 }
 export interface Layout {
   id: string;
@@ -100,12 +102,14 @@ export interface Layout {
   slug?: string;
   description?: string;
   header?: {
-    blocks?: (Menu | ReusableContent | SiteTitle)[];
+    blocks?: (ReusableContent | Menu | SiteTitle)[];
   };
   body?: {
-    blocks?: (PageContent | ReusableContent)[];
+    blocks?: (ReusableContent | PageContent | PageList)[];
   };
-  footer?: {};
+  footer?: {
+    blocks?: ReusableContent[];
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -129,6 +133,31 @@ export interface PageContent {
   id?: string;
   blockName?: string;
   blockType: 'pageContent';
+}
+export interface PageList {
+  numberOfItems?: number;
+  filterByCategories?:
+    | {
+        value: string;
+        relationTo: 'categories';
+      }[]
+    | {
+        value: Category;
+        relationTo: 'categories';
+      }[];
+  filterByTags?:
+    | {
+        value: string;
+        relationTo: 'tags';
+      }[]
+    | {
+        value: Tag;
+        relationTo: 'tags';
+      }[];
+  sortBy?: 'title' | 'createdAt' | 'updatedAt' | '-title' | '-createdAt' | '-updatedAt';
+  id?: string;
+  blockName?: string;
+  blockType: 'pageList';
 }
 export interface Media {
   id: string;

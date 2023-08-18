@@ -2,6 +2,7 @@ import type { CollectionConfig } from "payload/types";
 
 const CategoriesField = {
   name: "name",
+  slug: "slug",
 };
 
 type CategoriesField = (typeof CategoriesField)[keyof typeof CategoriesField];
@@ -18,6 +19,16 @@ const Categories: CollectionConfig = {
     {
       name: CategoriesField.name,
       type: "text",
+      required: true,
+    },
+    {
+      name: CategoriesField.slug,
+      type: "text",
+      required: true,
+      unique: true,
+      admin: {
+        position: "sidebar",
+      },
     },
   ],
   timestamps: false,

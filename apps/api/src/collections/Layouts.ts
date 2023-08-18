@@ -1,6 +1,7 @@
 import { CollectionConfig } from "payload/types";
 import { Menu } from "../blocks/Menu";
 import { PageContent } from "../blocks/PageContent";
+import { PageList } from "../blocks/PageList";
 import { ReusableContent } from "../blocks/ReusableContent";
 import { SiteTitle } from "../blocks/SiteTitle";
 
@@ -10,6 +11,8 @@ const LayoutsField = {
   description: "description",
 };
 type LayoutsField = (typeof LayoutsField)[keyof typeof LayoutsField];
+
+const blocks = [ReusableContent];
 
 const Layouts: CollectionConfig = {
   slug: "layouts",
@@ -44,7 +47,7 @@ const Layouts: CollectionConfig = {
         {
           name: "blocks",
           type: "blocks",
-          blocks: [Menu, ReusableContent, SiteTitle],
+          blocks: [...blocks, Menu, SiteTitle],
         },
       ],
     },
@@ -55,11 +58,21 @@ const Layouts: CollectionConfig = {
         {
           name: "blocks",
           type: "blocks",
-          blocks: [PageContent, ReusableContent],
+          blocks: [...blocks, PageContent, PageList],
         },
       ],
     },
-    { name: "footer", type: "group", fields: [] },
+    {
+      name: "footer",
+      type: "group",
+      fields: [
+        {
+          name: "blocks",
+          type: "blocks",
+          blocks: blocks,
+        },
+      ],
+    },
   ],
 };
 

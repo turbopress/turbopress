@@ -14,4 +14,11 @@ export default defineConfig({
   adapter: node({
     mode: "standalone",
   }),
+  vite: {
+    define: {
+      "import.meta.env.PAYLOAD_PUBLIC_SERVER_URL": JSON.stringify(
+        process.env.PAYLOAD_PUBLIC_SERVER_URL,
+      ),
+    },
+  },
 });
