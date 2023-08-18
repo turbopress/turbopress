@@ -10,7 +10,7 @@ const { content } = Astro.props;
 
 {
   content && (
-    <article class="w-full prose prose-headings:m-0 prose-headings:my-3 prose-p:m-0 prose-p:my-2">
+    <article class="w-full justify-center prose max-w-none prose-headings:m-0 prose-headings:my-3 prose-p:m-0 prose-p:my-2">
       <RichText richText={content} />
     </article>
   )

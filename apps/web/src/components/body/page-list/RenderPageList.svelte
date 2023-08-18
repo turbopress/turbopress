@@ -53,7 +53,7 @@
 </script>
 
 <div
-  class="w-full prose prose-headings:m-0 prose-headings:my-3 prose-p:m-0 prose-p:my-2"
+  class="w-full prose max-w-none prose-headings:m-0 prose-headings:my-3 prose-p:m-0 prose-p:my-2"
 >
   {#if pages}
     {#each pages as page}
