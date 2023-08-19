@@ -11,13 +11,17 @@
     "build": "pnpm copyfiles && pnpm build:payload && pnpm build:server",
     "copyfiles": "copyfiles -u 1 \"src/**/*.{html,css,scss,ttf,woff,woff2,eot,svg,jpg,png}\" dist/",
     "generate:types": "payload generate:types",
-    "lint": "eslint  \"./src/**/*.{js,ts}\" --fix"
+    "lint": "eslint  \"./src/**/*.{js,ts}\" --fix",
+    "serve": "node dist/server.js"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "payload": "latest",
-    "@payloadcms/plugin-seo": "latest"
+    "@payloadcms/plugin-seo": "latest",
+    "@payloadcms/plugin-cloud-storage": "latest",
+    "@aws-sdk/client-s3": "latest",
+    "@aws-sdk/lib-storage": "latest"
   },
   "devDependencies": {
     "eslint": "latest",

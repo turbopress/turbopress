@@ -1,4 +1,3 @@
-import path from "path";
 import type { CollectionConfig } from "payload/types";
 
 const Media: CollectionConfig = {
@@ -7,8 +6,7 @@ const Media: CollectionConfig = {
     read: () => true,
   },
   upload: {
-    staticDir: path.resolve(__dirname, "../../media"),
-    // Specify the size name that you'd like to use as admin thumbnail
+    disableLocalStorage: true,
     adminThumbnail: "thumbnail",
     imageSizes: [
       {
