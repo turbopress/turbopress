@@ -9,7 +9,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint  \"./src/**/*.{js,ts,tsx,astro}\" --fix"
+    "lint": "eslint  \"./src/**/*.{js,ts,tsx,astro}\" --fix",
+    "serve": "node dist/server/entry.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "latest",

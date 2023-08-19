@@ -50,6 +50,13 @@ pnpm dev
 
 By default, the payloadCMS will run on port 3000, and Astro will be served on port 3001.
 
+## Build & Serve (NodeJs)
+
+```sh
+pnpm build
+pnpm serve
+```
+
 ## TypeScript support
 
 To fully utilize the type safe features, manually generate the types for PayloadCMS by runng `pnpm generate:types`
