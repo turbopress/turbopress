@@ -6,13 +6,17 @@
     "prepare": "husky install",
     "build": "turbo build",
     "build:api": "dotenv -- turbo build --filter=api",
+    "build:web": "dotenv -- turbo build --filter=web",
     "dev": "dotenv -- turbo dev",
     "dev:api": "dotenv -- turbo dev --filter=api",
     "dev:web": "dotenv -- turbo dev --filter=web",
     "test": "turbo test",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md,astro}\"",
-    "generate:types": "dotenv -- pnpm --filter=api generate:types "
+    "generate:types": "dotenv -- pnpm --filter=api generate:types ",
+    "serve:api": "dotenv -- turbo serve --filter=api",
+    "serve:web": "dotenv -- turbo serve --filter=web",
+    "serve": "dotenv -- turbo serve"
   },
   "devDependencies": {
     "@turbo/gen": "^1.9.7",
