@@ -78,12 +78,16 @@ export const Menu: Block = {
                       async ({ value, siblingData }) => {
                         if (value && siblingData.type === "reference") {
                           const id = value.value;
-                          const page = await payload.findByID({
+                          const pages = await payload.find({
                             collection: "pages",
-                            id: id,
+                            where: {
+                              id: { equals: id },
+                            },
                             depth: 0,
                           });
-                          siblingData.url = page.slug;
+
+                          if (pages.docs[0]?.slug)
+                            siblingData.url = pages.docs[0].slug;
                         }
                       },
                     ],
