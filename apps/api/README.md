@@ -10,7 +10,7 @@ This project was created using create-payload-app using the blog template.
 
 If you have docker and docker-compose installed, you can run `docker-compose up`
 
-To build the docker image, run `docker build -t my-tag .`
+To build the docker image, run `docker build -t my-tag -f Dockerfile ../..`
 
 Ensure you are passing all needed environment variables when starting up your container via `--env-file` or setting them with your deployment.
 
